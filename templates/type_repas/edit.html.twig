@@ -1,18 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategorieController!{% endblock %}
+{% block title %}Modifier le Type de Repas{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <!-- En-tête avec titre et couleur d'édition -->
+                <div class="card-header bg-warning text-white text-center">
+                    <h3>Modifier le Type de Repas</h3>
+                </div>
+                <div class="card-body">
+                    {{ form_start(form) }}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-{{ form_start(form) }}
-{{ form_end(form) }}
-<p><a href="{{ path('repas.index') }}" class="btn btn-secondary btn-lg">
-                            <i class="fas fa-arrow-left me-2">Retour</i> </a></p>        
+                    <!-- Champ Type de Repas -->
+                    <div class="mb-3">
+                        {{ form_label(form.typeRepas, 'Type de Repas', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.typeRepas, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.typeRepas) }}
+                    </div>
+
+                    <!-- Champ Statut (radio buttons) -->
+                    <div class="mb-3">
+                        {{ form_label(form.statutTypeRepas, 'Statut', {'label_attr': {'class': 'form-label d-block'}}) }}
+                        <div class="form-check form-check-inline">
+                            {{ form_widget(form.statutTypeRepas, {'attr': {'class': 'form-check-input'}}) }}
+                        </div>
+                        {{ form_errors(form.statutTypeRepas) }}
+                    </div>
+
+                    <!-- Boutons d'action -->
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ path('repas.index') }}" class="btn btn-outline-secondary">
+                            Retour
+                        </a>
+                        <button type="submit" class="btn btn-warning">
+                            Modifier le Type de Repas
+                        </button>
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -1,17 +1,82 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategorieController!{% endblock %}
+{% block title %}Modifier la Recette{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-white text-center">
+                    <h3>Modifier la Recette</h3>
+                </div>
+                <div class="card-body">
+                    {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                    <!-- Titre de la Recette -->
+                    <div class="mb-3">
+                        {{ form_label(form.titreRecettes, 'Titre de la Recette', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.titreRecettes, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.titreRecettes) }}
+                    </div>
 
-{{ form_start(form) }}
-{{ form_end(form) }}
+                    <!-- Préparation -->
+                    <div class="mb-3">
+                        {{ form_label(form.preparations, 'Préparation', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.preparations, {'attr': {'class': 'form-control', 'rows': '5'}}) }}
+                        {{ form_errors(form.preparations) }}
+                    </div>
+
+                    <!-- Photo -->
+                    <div class="mb-3">
+                        {{ form_label(form.photoRecettes, 'Changer la Photo', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.photoRecettes, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(form.photoRecettes) }}
+                        <small class="text-muted">Laissez vide pour conserver l'image actuelle.</small>
+                    </div>
+
+                    <!-- Catégories -->
+                    <div class="mb-3">
+                        {{ form_label(form.categories, 'Catégorie', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.categories, {'attr': {'class': 'form-select'}}) }}
+                        {{ form_errors(form.categories) }}
+                    </div>
+
+                    <!-- Difficultés -->
+                    <div class="mb-3">
+                        {{ form_label(form.difficultes, 'Difficulté', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.difficultes, {'attr': {'class': 'form-select'}}) }}
+                        {{ form_errors(form.difficultes) }}
+                    </div>
+
+                    <!-- Type de Repas -->
+                    <div class="mb-3">
+                        {{ form_label(form.repas, 'Type de Repas', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.repas, {'attr': {'class': 'form-select'}}) }}
+                        {{ form_errors(form.repas) }}
+                    </div>
+
+                    <!-- Statut (Radio buttons) -->
+                    <div class="mb-3">
+                        {{ form_label(form.statutRecettes, 'Statut', {'label_attr': {'class': 'form-label d-block'}}) }}
+                        {{ form_widget(form.statutRecettes, {'attr': {'class': 'form-check-input'}}) }}
+                        {{ form_errors(form.statutRecettes) }}
+                    </div>
+
+                    <!-- Boutons -->
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ path('recettes.index') }}" class="btn btn-outline-secondary">
+                            Retour
+                        </a>
+                        <button type="submit" class="btn btn-warning">
+                            Modifier la Recette
+                        </button>
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

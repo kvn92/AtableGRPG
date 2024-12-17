@@ -47,7 +47,7 @@ class TypeRepasController extends AbstractController
 
         }
         return $this->render('type_repas/create.html.twig', [
-            'controller_name' => 'Type Repas','form' => $form
+            'controller_name' => 'Type Repas','form' => $form->createView()
         ]);
     }
 
@@ -76,7 +76,7 @@ class TypeRepasController extends AbstractController
     
             }
             return $this->render('type_repas/edit.html.twig', [
-                'controller_name' => 'Modifier Mise à jour','form'=>$form
+                'controller_name' => 'Modifier Mise à jour','form'=>$form->createView()
             ]);
         }
     

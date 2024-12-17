@@ -21,7 +21,7 @@ class TypeRepasType extends AbstractType
                 'attr' => [
                     'placeholder' => 'exemeple Dessert'
                 ]])
-            ->add('StatutTypeRepas',ChoiceType::class, [
+            ->add('statutTypeRepas',ChoiceType::class, [
                 'label' => 'Statut',
                 'choices' => [
                     'Actif' => true,

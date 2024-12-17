@@ -9,37 +9,37 @@
             <div class="card shadow">
                 <!-- Titre de l'entête -->
                 <div class="card-header bg-info text-white text-center">
-                    <h3>Détail de la Catégorie</h3>
+                    <h3>Détail de Type de Repas</h3>
                 </div>
                 <div class="card-body">
                     <!-- Informations de la catégorie -->
                     <ul class="list-group mb-4">
                         <li class="list-group-item">
-                            <strong>ID :</strong> {{ categorie.id }}
+                            <strong>ID :</strong> {{ repas.id }}
                         </li>
                         <li class="list-group-item">
-                            <strong>Nom :</strong> {{ categorie.categories }}
+                            <strong>Nom :</strong> {{ repas.typeRepas }}
                         </li>
                         <li class="list-group-item">
                             <strong>Statut :</strong>
-                            {% if categorie.isStatutCategories %}
+                            {% if repas.isStatutTypeRepas %}
                                 <span class="badge bg-success">Actif</span>
                             {% else %}
                                 <span class="badge bg-danger">Inactif</span>
                             {% endif %}
                         </li>
                         <li class="list-group-item">
-                            <strong>Nombre de recettes :</strong> {{ categorie.recettes|length }}
+                            <strong>Nombre de recettes :</strong> {{ repas.recettes|length }}
                         </li>
                     </ul>
 
                     <!-- Boutons d'action -->
                     <div class="d-flex justify-content-between">
-                        <a href="{{ path('categories.index') }}" class="btn btn-outline-secondary">
+                        <a href="{{ path('repas.index') }}" class="btn btn-outline-secondary">
                             Retour à la liste
                         </a>
-                        <a href="{{ path('categories.edit', { id: categorie.id }) }}" class="btn btn-warning">
-                            Modifier la Catégorie
+                        <a href="{{ path('repas.edit', { id: repas.id }) }}" class="btn btn-warning">
+                            Modifier le type Repas 
                         </a>
                     </div>
                 </div>

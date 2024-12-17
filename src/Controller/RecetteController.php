@@ -92,7 +92,7 @@ if ($form->isSubmitted() && $form->isValid()) {
     return $this->redirectToRoute('recette.index');
 
 }
-        return $this->render('recette/show.html.twig',['recette'=>$recette]);
+        return $this->render('recette/edit.html.twig',['form'=>$form->createView()]);
     }
 
 }
