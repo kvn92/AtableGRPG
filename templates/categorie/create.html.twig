@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Catégories{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+                    <div class="mb-3">
+                        {{ form_label(form.categories, 'Nom de la catégorie', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.categories, {'attr': {'class': 'form-control', 'placeholder': 'Exemple : Technologie'}}) }}
+                        {{ form_errors(form.categories) }}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_label(form.statutCategories, 'Statut', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(form.statutCategories, {'attr': {'class': 'form-check'}}) }}
+                        {{ form_errors(form.statutCategories) }}
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+
+                        <a href="{{ path('categories.index') }}" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-arrow-left me-2"></i> Retour
+                        </a>
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Bootstrap validation script
+    (function () {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+{% endblock %}
